@@ -21,7 +21,7 @@ def display_intro_screen():
     pygame.display.update()
     time.sleep(2)
 
-def display_loss_screen(window, current_position):
+def display_loss_screen(window):
     display_loss_screen = pygame.font.SysFont('roboto', 40).render("You lose!", True, colors["red"])
     window.blit(display_loss_screen, (450, 250))
     pygame.display.update()
@@ -142,7 +142,7 @@ def main():
         # If head of snake touches the snakes body end the game
         for rect in snake_body[:-1]:
             if rect == snake_head:
-                running = False
+                running = display_loss_screen(window)
 
         
             
